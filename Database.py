@@ -16,5 +16,8 @@ class Database:
             return
         else:
             self.db["timetable"].find_one_and_update(
-                {"date": date}, {"$set": {time: time, subject: subject, topic: topic}}
+                {"date": date},
+                {"$set": {time: time, subject: subject, topic: topic}},
+                upsert=True,
             )
+            return True
