@@ -27,7 +27,11 @@ class Database:
         self.dbSetup()
 
     def dbSetup(self):
-        self.client = MongoClient(os.getenv("MONGO_URI", "mongodb://hi:*hi123@ds259377.mlab.com:59377/timetable"))
+        self.client = MongoClient(
+            os.getenv(
+                "MONGO_URI", "mongodb://hi:*hi123@ds259377.mlab.com:59377/timetable"
+            )
+        )
         self.db = self.client["timetable"]
         self.ready = True
 
